@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= shopName %></title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+      /* Column layout so items appear one-per-line  */
+      .game-grid { display:flex; flex-direction:column; gap:8px; }
+      .game-item { border:1px solid #e2e8f0; padding:8px 10px; border-radius:4px; background:#fff; display:flex; align-items:center; }
+      .game-item input { margin-right:8px }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/search">Search</a>
+        <a href="/survey">Survey</a>
+        +<a href="/no-e-game">No-e Game</a>
+        <a href="/register">Register</a>
+        
+      </nav>
+    </header>
+
+    <div class="container">
+      <h1>No-e in Market</h1>
+      <p>Pick all items sold at "No-e in Market" </p>
+
+      <form action="/no-e-game" method="POST">
+        <div class="game-grid">
+          <% gameItems.forEach(function(item, idx){ %>
+            <label class="game-item">
+              <input type="checkbox" name="selected" value="<%= item %>" id="gi<%=idx%>">
+              <%= item %>
+            </label>
+          <% }) %>
+        </div>
+
+        <div style="margin-top:12px">
+          <button type="submit">Submit answers</button>
+          <button type="reset" style="margin-left:8px;">Clear</button>
+        </div>
+      </form>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Results</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+      .cols { display:flex; gap:24px; }
+      .col { flex:1 }
+      ul { padding-left:18px }
+    </style>
+  </head>
+  <body>
+    <!-- nav links -->
+    <header>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/search">Search</a>
+        <a href="/survey">Survey</a>
+        <a href="/no-e-game">No-e Game</a>
+        <a href="/register">Register</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h1>No e in Market — Results</h1>
+
+      <!-- check if user got everything correct -->
+      <% if (allCorrect) { %>
+        <p>Great job — you selected exactly the items that do not contain the letter "e".</p>
+        <!-- show correct items -->
+        <div class="result-box">
+          <p><strong>Items sold in No-e in Market:</strong></p>
+          <ul>
+            <% correctItems.forEach(function(c){ %>
+              <li><%= c %></li>
+            <% }) %>
+          </ul>
+        </div>
+      <% } else { %>
+        <!-- user got it wrong -->
+        <p><strong>I am sorry, you are incorrect.</strong></p>
+
+        <!-- only show what they found correctly (makes it mysterious) -->
+        <div class="result-box">
+          <h3>You found these:</h3>
+          <% if (correctSelected.length) { %>
+            <ul>
+              <% correctSelected.forEach(function(c){ %>
+                <li><%= c %></li>
+              <% }) %>
+            </ul>
+          <% } else { %>
+            <p>None yet.</p>
+          <% } %>
+        </div>
+
+        <!-- encourage them to try again -->
+        <p style="margin-top:12px;"><em>Still don't know what is sold in No-e in Market? Keep trying.</em></p>
+
+        <!-- try again button -->
+        <div style="margin-top:12px">
+          <a href="/no-e-game"><button>Try again</button></a>
+        </div>
+
+      <% } %>
+
+    </div>
+  </body>
+</html>

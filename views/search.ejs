@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <title>The Thirsty Student - Search</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <!-- top nav bar -->
+    <header>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/search">Search</a>
+        <a href="/survey">Survey</a>
+        <a href="/no-e-game">No-e Game</a>
+        <a href="/register">Register</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h1>Search Page</h1>
+      <!-- search form - gets sent to /search_result -->
+      <form action="/search_result" method="GET">    
+        <!-- labels and inputs in a row using flexbox -->
+        <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap;">
+          <div>
+            <label for="q-name">Product:</label>
+            <input id="q-name" type="text" name="Name" placeholder="e.g., Beef">
+          </div>
+
+          <div>
+            <label for="q-category">Category:</label>
+            <input id="q-category" type="text" name="Category" placeholder="e.g., Meat">
+          </div>
+
+          <div>
+            <button type="submit">OK</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+  </body>
+</html>

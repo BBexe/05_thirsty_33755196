@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Survey - <%= shopName %></title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <!-- header navigation -->
+    <header>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/search">Search</a>
+        <a href="/survey">Survey</a>
+        <a href="/no-e-game">No-e Game</a>
+        <a href="/register">Register</a>
+
+      </nav>
+    </header>
+
+    <div class="container">
+      <h1>Customer Survey</h1>
+      <!-- survey form -->
+      <form action="/survey_submit" method="POST">
+        <!-- basic info fields -->
+        <div>
+          <label for="first">First name:</label>
+          <input id="first" name="first" type="text" required>
+        </div>
+        <div>
+          <label for="last">Surname:</label>
+          <input id="last" name="last" type="text" required>
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input id="email" name="email" type="email" required>
+        </div>
+
+        <!-- age question -->
+        <h3>How old are you?</h3>
+        <div>
+          <label for="age">Age:</label>
+          <input id="age" name="age" type="text">
+        </div>
+
+        <!-- category question with radio buttons -->
+        <h3>Which of the following do you consume?</h3>
+        <div>
+          <% if (productCategories && productCategories.length) { %>
+            <% productCategories.forEach(function(cat, idx) { %>
+              <div>
+                <!-- radio button for each category -->
+                <input type="radio" id="cat<%=idx%>" name="category" value="<%=cat%>">
+                <label for="cat<%=idx%>"><%=cat%></label>
+              </div>
+            <% }) %>
+          <% } else { %>
+            <p>No categories available.</p>
+          <% } %>
+        </div>
+
+        <!-- student checkbox -->
+        <div>
+          <label for="isStudent">Are you a student?</label>
+          <input id="isStudent" name="isStudent" type="checkbox">
+        </div>
+
+        <div>
+          <button type="submit">Submit survey</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

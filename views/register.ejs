@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Register - <%= shopName %></title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <!-- navigation links -->
+    <header>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/search">Search</a>
+        <a href="/survey">Survey</a>
+        <a href="/no-e-game">No-e Game</a>
+        <a href="/register">Register</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h1>Register</h1>
+      <p>Please fill in your details to register.</p>
+      <!-- registration form posts to /registered -->
+      <form method="POST" action="/registered">
+        <div>
+          <label for="first">First Name:</label>
+          <input id="first" type="text" name="first" required />
+        </div>
+        <div>
+          <label for="last">Last Name:</label>
+          <input id="last" type="text" name="last" required />
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input id="email" type="email" name="email" required />
+        </div>
+        <div>
+          <button type="submit">Register</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

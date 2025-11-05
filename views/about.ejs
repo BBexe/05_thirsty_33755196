@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <title>About - <%= shopName %></title>
+    <!-- css file -->
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <!-- navigation bar at the top -->
+    <header>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/search">Search</a>
+        <a href="/survey">Survey</a>
+        <a href="/no-e-game">No-e Game</a>
+        <a href="/register">Register</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h1>About <%= shopName %></h1>
+
+      <h2>Our shops</h2>
+      <!-- check if shops exist then display them -->
+      <% if (shops && shops.length) { %>
+        <ul class="shops">
+          <% shops.forEach(function(s) { %>
+            <li>
+              <!-- shop name, manager and address -->
+              <strong><%= s.name %></strong> — Manager: <%= s.manager %>, Address: <%= s.address %>
+            </li>
+          <% }); %>
+        </ul>
+      <% } else { %>
+        <p>No shop locations yet.</p>
+      <% } %>
+    </div>
+  </body>
+</html>
